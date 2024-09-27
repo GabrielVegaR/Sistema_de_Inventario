@@ -3,7 +3,7 @@ using Sistema_de_Inventario.Models;
 
 namespace Sistema_de_Inventario.Abstracciones.Repositorios
 {
-    public class IRepositorioCategoria
+    public interface IRepositorioCategoria
     {
         List<Categoria> Get();
         Categoria? GetById(int id);

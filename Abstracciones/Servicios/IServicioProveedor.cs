@@ -3,7 +3,7 @@ using Sistema_de_Inventario.DTOs.Proveedor;
 
 namespace Sistema_de_Inventario.Abstracciones.Servicios
 {
-    public class IServicioProveedor
+    public interface IServicioProveedor
     {
         List<ProveedorDTO> Get();
         ProveedorDTO? GetById(int id);

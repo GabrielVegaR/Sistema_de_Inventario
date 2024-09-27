@@ -4,7 +4,7 @@ using Sistema_de_Inventario.Models;
 
 namespace Sistema_de_Inventario.Abstracciones.Repositorios
 {
-    public class IRepositorioProveedor
+    public interface IRepositorioProveedor
     {
         List<Proveedor> Get();
         Proveedor? GetById(int id);

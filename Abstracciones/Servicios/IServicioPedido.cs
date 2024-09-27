@@ -2,7 +2,7 @@
 
 namespace Sistema_de_Inventario.Abstracciones.Servicios
 {
-    public class IServicioPedido
+    public interface IServicioPedido
     {
         List<PedidoDTO> Get();
         PedidoDTO? GetById(int id);

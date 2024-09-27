@@ -3,7 +3,7 @@ using Sistema_de_Inventario.DTOs.ProductosPedido;
 
 namespace Sistema_de_Inventario.Abstracciones.Servicios
 {
-    public class IServicioProductosPedido
+    public interface IServicioProductosPedido
     {
         List<ProductosPedidoDTO> Get();
         ProductosPedidoDTO? GetById(int id);

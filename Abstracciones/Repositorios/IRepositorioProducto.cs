@@ -4,7 +4,7 @@ using Sistema_de_Inventario.Models;
 
 namespace Sistema_de_Inventario.Abstracciones.Repositorios
 {
-    public class IRepositorioProducto
+    public interface IRepositorioProducto
     {
         List<Producto> Get();
         Producto? GetById(int id);

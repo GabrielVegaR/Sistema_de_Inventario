@@ -2,7 +2,7 @@
 
 namespace Sistema_de_Inventario.Abstracciones.Servicios
 {
-    public class IServicioCategoria
+    public interface IServicioCategoria
     {
         List<CategoriaDTO> Get();
         CategoriaDTO? GetById(int id);
