@@ -18,7 +18,6 @@
 
   <ItemGroup>
     <Folder Include="Implementaciones\Servicios\" />
-    <Folder Include="Implementaciones\Repositorios\" />
   </ItemGroup>
 
 </Project>
