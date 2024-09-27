@@ -9,7 +9,7 @@ namespace Sistema_de_Inventario.Abstracciones.Repositorios
         List<Proveedor> Get();
         Proveedor? GetById(int id);
         Proveedor? Crear(CrearProveedorDTO crearProveedorDTO);
-        Proveedor Actializar(int id, ActualizarProveedorDTO actualizarProveedorDTO);
+        Proveedor Actualizar(int id, ActualizarProveedorDTO actualizarProveedorDTO);
         void Borrar(int id);
     }
 }
