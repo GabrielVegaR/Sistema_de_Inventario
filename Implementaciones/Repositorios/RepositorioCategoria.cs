@@ -1,4 +1,4 @@
-﻿using Sistema_de_Inventario.Abstracciones.Repositorios
+﻿using Sistema_de_Inventario.Abstracciones.Repositorios;
 
 using Sistema_de_Inventario.DTOs.Categoria;
 using Sistema_de_Inventario.Models;
