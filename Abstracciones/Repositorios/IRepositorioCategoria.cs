@@ -8,7 +8,7 @@ namespace Sistema_de_Inventario.Abstracciones.Repositorios
         List<Categoria> Get();
         Categoria? GetById(int id);
         Categoria? Crear(CrearCategoriaDTO crearCategoriaDTO);
-        Categoria Actializar(int id, ActualizarCategoriaDTO actualizarCategoriaDTO);
+        Categoria Actualizar(int id, ActualizarCategoriaDTO actualizarCategoriaDTO);
         void Borrar(int id);
     }
 }
