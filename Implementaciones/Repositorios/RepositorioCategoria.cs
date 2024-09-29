@@ -31,7 +31,7 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
             return result.Entity;
         }
 
-        public Categoria Crear(CrearCategoriaDTO crearCategoriaDTO)
+        public Categoria? Crear(CrearCategoriaDTO crearCategoriaDTO)
         {
             var categoria = new Categoria
             {
