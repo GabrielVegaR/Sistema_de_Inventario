@@ -17,7 +17,11 @@ public partial class ProductosPedido
 
     public decimal PrecioUnidad { get; set; }
 
+    public DateTime? FechaCreacion { get; set; }
+
     public virtual Pedido IdPedidoNavigation { get; set; } = null!;
 
     public virtual Producto IdProductoNavigation { get; set; } = null!;
+
+    
 }
