@@ -16,7 +16,6 @@ namespace Sistema_de_Inventario.Implementaciones.Servicios
 
         public PedidoDTO? Crear(CrearPedidoDTO crearPedidoDTO)
         {
-            // Crear instancia de Pedido
             var pedidoCreado = repositorioPedido.Crear(crearPedidoDTO);
 
             if (pedidoCreado == null)
@@ -24,7 +23,6 @@ namespace Sistema_de_Inventario.Implementaciones.Servicios
                 return null;
             }
 
-            // Mapear el pedido creado a PedidoDTO para devolver la respuesta
             var pedidoDTO = PedidoDTO.ConvertirAPedidoDTO(pedidoCreado);
             return pedidoDTO;
         }
@@ -63,7 +61,7 @@ namespace Sistema_de_Inventario.Implementaciones.Servicios
                     PedidoId = pedido.PedidoId,
                     Total = pedido.Total,
                     FechaCreacion = (DateTime)pedido.FechaCreacion,
-                    Productos = productosDTO // Asigna la lista de productos
+                    Productos = productosDTO 
                 };
 
                 pedidoDTO.Add(result);

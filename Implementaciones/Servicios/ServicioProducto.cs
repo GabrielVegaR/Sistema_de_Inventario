@@ -32,7 +32,6 @@ namespace Sistema_de_Inventario.Implementaciones.Servicios
 
         public ProductoDTO Actualizar(int id, ActualizarProductoDTO actualizarProductoDTO)
         {
-            // Implementar la lógica para actualizar un producto
             var producto = repositorioProducto.Actualizar(id, actualizarProductoDTO);
 
             var productoDTO = ProductoDTO.ConvertirAProductoDTO(producto);
@@ -42,7 +41,6 @@ namespace Sistema_de_Inventario.Implementaciones.Servicios
 
         public List<ProductoDTO> Get()
         {
-            // Obtener la lista de productos desde el repositorio
             var listaProductos = repositorioProducto.Get();
             var productoDTO = new List<ProductoDTO>();
 

@@ -23,7 +23,6 @@ namespace Sistema_de_Inventario.Controllers
             return Ok(listaCategoria);
         }
 
-        // POST: api/Categoria
         [HttpPost]
         public IActionResult Crear(CrearCategoriaDTO crearCategoriaDTO)
         {
