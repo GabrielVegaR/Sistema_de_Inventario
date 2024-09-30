@@ -22,8 +22,8 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
                 throw new Exception();
             }
 
-            categoriaActual.Nombre = actualizarCategoriaDTO.Nombre ?? actualizarCategoriaDTO.Nombre;
-            categoriaActual.Descripcion = actualizarCategoriaDTO.Descripcion ?? actualizarCategoriaDTO.Descripcion;
+            categoriaActual.Nombre = actualizarCategoriaDTO.Nombre ?? categoriaActual.Nombre;
+            categoriaActual.Descripcion = actualizarCategoriaDTO.Descripcion ?? categoriaActual.Descripcion;
 
 
             var result = _context.Update(categoriaActual);

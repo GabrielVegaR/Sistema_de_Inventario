@@ -21,11 +21,11 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
                 throw new Exception("Proveedor no Encontrado");
             }
 
-            proveedorActual.Nombre = actualizarProveedorDTO.Nombre ?? actualizarProveedorDTO.Nombre;
-            proveedorActual.Email = actualizarProveedorDTO.Email ?? actualizarProveedorDTO.Email;
-            proveedorActual.CodigoArea = actualizarProveedorDTO.CodigoArea ?? actualizarProveedorDTO.CodigoArea;
-            proveedorActual.CodigoPais = actualizarProveedorDTO.CodigoPais ?? actualizarProveedorDTO.CodigoPais;
-            proveedorActual.Telefono = actualizarProveedorDTO.Telefono ?? actualizarProveedorDTO.Telefono;
+            proveedorActual.Nombre = actualizarProveedorDTO.Nombre ?? proveedorActual.Nombre;
+            proveedorActual.Email = actualizarProveedorDTO.Email ?? proveedorActual.Email;
+            proveedorActual.CodigoArea = actualizarProveedorDTO.CodigoArea ?? proveedorActual.CodigoArea;
+            proveedorActual.CodigoPais = actualizarProveedorDTO.CodigoPais ?? proveedorActual.CodigoPais;
+            proveedorActual.Telefono = actualizarProveedorDTO.Telefono ?? proveedorActual.Telefono;
 
             var result = _context.Update(proveedorActual);
             _context.SaveChanges();

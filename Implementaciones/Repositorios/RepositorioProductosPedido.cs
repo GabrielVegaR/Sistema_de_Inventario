@@ -21,8 +21,8 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
                 throw new Exception();
             }
 
-            productoPedidoActual.PrecioUnidad = (decimal)(actualizarProductosPedidosDTO.PrecioUnidad ?? actualizarProductosPedidosDTO.PrecioUnidad);
-            productoPedidoActual.Cantidad = (decimal)(actualizarProductosPedidosDTO.Cantidad ?? actualizarProductosPedidosDTO.Cantidad);
+            productoPedidoActual.PrecioUnidad = (actualizarProductosPedidosDTO.PrecioUnidad ?? productoPedidoActual.PrecioUnidad);
+            productoPedidoActual.Cantidad = (actualizarProductosPedidosDTO.Cantidad ?? productoPedidoActual.Cantidad);
 
             var result = _context.Update(productoPedidoActual);
             _context.SaveChanges();

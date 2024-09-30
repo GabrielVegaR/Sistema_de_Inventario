@@ -20,10 +20,10 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
                 throw new Exception();
             }
 
-            productoActual.Nombre = actualizarProductoDTO.Nombre ?? actualizarProductoDTO.Nombre;
-            productoActual.Descripcion = actualizarProductoDTO.Descripcion ?? actualizarProductoDTO.Descripcion;
-            productoActual.Precio = (decimal)(actualizarProductoDTO.Precio ?? actualizarProductoDTO.Precio);
-            productoActual.Stock = (int)(actualizarProductoDTO.Stock ?? actualizarProductoDTO.Stock);
+            productoActual.Nombre = actualizarProductoDTO.Nombre ?? productoActual.Nombre;
+            productoActual.Descripcion = actualizarProductoDTO.Descripcion ?? productoActual.Descripcion;
+            productoActual.Precio = (actualizarProductoDTO.Precio ?? productoActual.Precio);
+            productoActual.Stock = (actualizarProductoDTO.Stock ?? productoActual.Stock);
 
             var result = _context.Update(productoActual);
             _context.SaveChanges();
@@ -40,15 +40,14 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
                 Descripcion = crearProductoDTO.Descripcion,
                 Precio = crearProductoDTO.Precio,
                 Stock = crearProductoDTO.Stock,
-                IdCategoria = crearProductoDTO.IdCategoria, // Asignar directamente
-                IdProveedor = crearProductoDTO.IdProveedor // Asignar directamente
+                IdCategoria = crearProductoDTO.IdCategoria, 
+                IdProveedor = crearProductoDTO.IdProveedor 
             };
 
-            // Agregar el producto al contexto y guardar los cambios
             var result = _context.Productos.Add(producto);
             _context.SaveChanges();
 
-            return result.Entity; // Retorna el producto creado
+            return result.Entity;
         }
 
         public void Borrar(int id)

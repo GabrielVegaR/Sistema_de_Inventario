@@ -17,36 +17,33 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
 
         public Pedido Crear(CrearPedidoDTO crearPedidoDTO)
         {
-            var total = 0m; // Inicializa el total
-            var productosPedidos = new List<ProductosPedido>(); // Lista para los productos del pedido
+            var total = 0m; 
+            var productosPedidos = new List<ProductosPedido>();
 
             foreach (var productoDTO in crearPedidoDTO.Productos)
             {
-                // Buscar el producto actual en la base de datos usando el ID
                 var producto = _context.Productos.FirstOrDefault(p => p.ProductoId == productoDTO.IdProducto);
                 if (producto == null)
                 {
                     throw new Exception($"Producto con ID {productoDTO.IdProducto} no encontrado.");
                 }
 
-                // Calcular el total acumulado
                 total += producto.Precio * productoDTO.Cantidad;
 
-                // Agregar el producto a la lista
                 productosPedidos.Add(new ProductosPedido
                 {
                     IdProducto = producto.ProductoId,
                     Cantidad = productoDTO.Cantidad,
-                    PrecioUnidad = producto.Precio, // Asignar el precio del producto encontrado
+                    PrecioUnidad = producto.Precio, 
                     FechaCreacion = DateTime.Now
                 });
             }
 
             var pedido = new Pedido
             {
-                Total = total, // Asigna el total calculado
+                Total = total, 
                 FechaCreacion = DateTime.Now,
-                ProductosPedidos = productosPedidos // Asigna la lista de productos
+                ProductosPedidos = productosPedidos 
             };
 
             var result = _context.Pedidos.Add(pedido);
