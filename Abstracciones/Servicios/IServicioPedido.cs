@@ -7,6 +7,7 @@ namespace Sistema_de_Inventario.Abstracciones.Servicios
         List<PedidoDTO> Get();
         PedidoDTO? GetById(int id);
         PedidoDTO? Crear(CrearPedidoDTO crearPedidoDTO);
+        PedidoDTO Actualizar(int id, ActualizarPedidoDTO actualizarPedidoDTO);
         void Borrar(int id);
     }
 }
