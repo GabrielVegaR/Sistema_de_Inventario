@@ -9,6 +9,7 @@ namespace Sistema_de_Inventario.Abstracciones.Repositorios
         List<Pedido> Get();
         Pedido? GetById(int id);
         Pedido? Crear(CrearPedidoDTO crearPedidoDTO);
+        Pedido Actualizar(int id, ActualizarPedidoDTO actualizarPedidoDTO);
         void Borrar(int id);
     }
 }
