@@ -14,7 +14,22 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
 
         public Proveedor Actualizar(int id, ActualizarProveedorDTO actualizarProveedorDTO)
         {
-            throw new NotImplementedException();
+            var proveedorActual = GetById(id);
+
+            if (proveedorActual == null)
+            {
+                throw new Exception("Proveedor no Encontrado");
+            }
+
+            proveedorActual.Nombre = actualizarProveedorDTO.Nombre ?? actualizarProveedorDTO.Nombre;
+            proveedorActual.Email = actualizarProveedorDTO.Email ?? actualizarProveedorDTO.Email;
+            proveedorActual.CodigoArea = actualizarProveedorDTO.CodigoArea ?? actualizarProveedorDTO.CodigoArea;
+            proveedorActual.CodigoPais = actualizarProveedorDTO.CodigoPais ?? actualizarProveedorDTO.CodigoPais;
+            proveedorActual.Telefono = actualizarProveedorDTO.Telefono ?? actualizarProveedorDTO.Telefono;
+
+            var result = _context.Update(proveedorActual);
+            _context.SaveChanges();
+            return result.Entity;
         }
         public Proveedor? Crear(CrearProveedorDTO crearProveedorDTO)
         {
