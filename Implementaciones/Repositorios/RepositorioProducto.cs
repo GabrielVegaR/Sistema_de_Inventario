@@ -34,18 +34,21 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
 
         public Producto? Crear(CrearProductoDTO crearProductoDTO)
         {
-            var producto = new Producto {
+            var producto = new Producto
+            {
                 Nombre = crearProductoDTO.Nombre,
                 Descripcion = crearProductoDTO.Descripcion,
                 Precio = crearProductoDTO.Precio,
                 Stock = crearProductoDTO.Stock,
-                FechaCreacion = DateTime.Now
+                IdCategoria = crearProductoDTO.IdCategoria, // Asignar directamente
+                IdProveedor = crearProductoDTO.IdProveedor // Asignar directamente
             };
 
-            var result = _context.Add(producto);
+            // Agregar el producto al contexto y guardar los cambios
+            var result = _context.Productos.Add(producto);
             _context.SaveChanges();
 
-            return result.Entity;
+            return result.Entity; // Retorna el producto creado
         }
 
         public void Borrar(int id)
@@ -53,7 +56,7 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
             var borrar = GetById(id);
             if (borrar == null)
             {
-                throw new Exception("Usuario no Encontrado");
+                throw new Exception("Producto no Encontrado");
             }
 
             var result = _context.Remove(borrar);
