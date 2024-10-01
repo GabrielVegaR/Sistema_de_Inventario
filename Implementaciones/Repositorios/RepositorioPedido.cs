@@ -28,7 +28,13 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
                     throw new Exception($"Producto con ID {productoDTO.IdProducto} no encontrado.");
                 }
 
+                if (producto.Stock < productoDTO.Cantidad)
+                {
+                    throw new Exception($"No hay suficiente stock para el producto con ID {productoDTO.IdProducto}.");
+                }
+
                 total += producto.Precio * productoDTO.Cantidad;
+                producto.Stock -= Convert.ToInt32(productoDTO.Cantidad);
 
                 productosPedidos.Add(new ProductosPedido
                 {
