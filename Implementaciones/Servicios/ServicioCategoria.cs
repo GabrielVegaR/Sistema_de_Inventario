@@ -2,6 +2,9 @@
 using Sistema_de_Inventario.Abstracciones.Repositorios;
 using Sistema_de_Inventario.DTOs.Categoria;
 using Sistema_de_Inventario.Models;
+using Sistema_de_Inventario.DTOs.Pedido;
+using Sistema_de_Inventario.DTOs.Producto;
+using Sistema_de_Inventario.Implementaciones.Repositorios;
 
 namespace Sistema_de_Inventario.Implementaciones.Servicios
 {
@@ -13,22 +16,24 @@ namespace Sistema_de_Inventario.Implementaciones.Servicios
             this.repositorioCategoria = repositorioCategoria;
         }
 
-        public CategoriaDTO Actualizar(int id, ActualizarCategoriaDTO actualizarCategoriaDTO)
+        public CategoriaDTO? Crear(CrearCategoriaDTO crearCategoriaDTO)
         {
-            var categoria = repositorioCategoria.Actualizar(id, actualizarCategoriaDTO);
+            var categoria = repositorioCategoria.Crear(crearCategoriaDTO);
+
+            if (categoria == null)
+            {
+                return null;
+            }
 
             var categoriaDTO = CategoriaDTO.ConvertirACategoriaDTO(categoria);
 
             return categoriaDTO;
         }
 
-        public CategoriaDTO? Crear(CrearCategoriaDTO crearCategoriaDTO)
+        public CategoriaDTO Actualizar(int id, ActualizarCategoriaDTO actualizarCategoriaDTO)
         {
-            var categoria = repositorioCategoria.Crear(crearCategoriaDTO);
-            if (categoria == null)
-            {
-                return null;
-            }
+            var categoria = repositorioCategoria.Actualizar(id, actualizarCategoriaDTO);
+
             var categoriaDTO = CategoriaDTO.ConvertirACategoriaDTO(categoria);
 
             return categoriaDTO;
@@ -56,6 +61,10 @@ namespace Sistema_de_Inventario.Implementaciones.Servicios
         public CategoriaDTO? GetById(int id)
         {
             var categoria = repositorioCategoria.GetById(id);
+            if (categoria == null)
+            {
+                return null;
+            }
 
             var categoriaDTO = CategoriaDTO.ConvertirACategoriaDTO(categoria);
 
