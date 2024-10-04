@@ -87,9 +87,7 @@ namespace Sistema_de_Inventario.Implementaciones.Repositorios
 
         public List<Pedido> Get()
         {
-            return _context.Pedidos
-                .Include(p => p.ProductosPedidos) 
-                .ToList();
+            return _context.Pedidos.Include(p => p.ProductosPedidos).ToList();
         }
 
         public Pedido? GetById(int id) 
